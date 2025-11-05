@@ -2,6 +2,10 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.new {
+  color: blue;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
@@ -14,7 +18,8 @@ body {
 }
 
 .dnerf {
-  font-variant: small-caps;
+  /* font-variant: small-caps; */
+  font-style: italic;
 }
 
 
@@ -155,3 +160,4 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+

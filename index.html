@@ -1,561 +1,706 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="UniWorld: A Universal Controllable World Model for Autonomous Driving">
-  <meta name="keywords" content="UniWorld">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UniWorld: A Universal Controllable World Model for Autonomous Driving</title>
+    <meta charset="utf-8">
+    <meta name="description" content="UniWorld: A Universal Controllable World Model for Autonomous Driving">
+    <meta name="keywords" content="UniWorld">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniWorld: A Universal Controllable World Model for Autonomous Driving</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-    gtag('js', new Date());
+        gtag('js', new Date());
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/ms_icon.png">
-  <link rel="stylesheet" href="./static/css/progressive-image.css">
-  <link rel="stylesheet" href="./static/css/twentytwenty.css">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/ms_icon.png">
+    <link rel="stylesheet" href="./static/css/progressive-image.css">
+    <link rel="stylesheet" href="./static/css/twentytwenty.css">
 
-  <style>  
-    table {  
-      font-family: arial, sans-serif;  
-      border-collapse: collapse;  
-      width: 100%;  
-    }  
-      
-    td, th {  
-      border: 2px solid #F1F4F5;  
-      text-align: left;  
-      padding: 8px;  
-    }  
-    tr:nth-child(3n - 1) {  
-      background-color: #F1F4F5;  
-    }  
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-    tr:nth-child(3n) {  
-      border: 2px solid #FFFFFF;
-    }  
-  </style>
+        td,
+        th {
+            border: 2px solid #F1F4F5;
+            text-align: left;
+            padding: 8px;
+        }
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/jquery.event.move.js"></script>
-  <script src="./static/js/jquery.twentytwenty.js"></script>
-  <!-- <script src="./static/js/index.js"></script> -->
-  
-  <link rel="stylesheet" href="./static/css/tab_gallery.css">
-  <link rel="stylesheet" href="./static/css/juxtapose.css">
-  <link rel="stylesheet" href="./static/css/image_card_fader.css">
-  <link rel="stylesheet" href="./static/css/image_card_slider.css">
+        tr:nth-child(3n - 1) {
+            background-color: #F1F4F5;
+        }
+
+        tr:nth-child(3n) {
+            border: 2px solid #FFFFFF;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/jquery.event.move.js"></script>
+    <script src="./static/js/jquery.twentytwenty.js"></script>
+    <!-- <script src="./static/js/index.js"></script> -->
+
+    <link rel="stylesheet" href="./static/css/tab_gallery.css">
+    <link rel="stylesheet" href="./static/css/juxtapose.css">
+    <link rel="stylesheet" href="./static/css/image_card_fader.css">
+    <link rel="stylesheet" href="./static/css/image_card_slider.css">
 </head>
+
 <body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">UniWorld: A Universal Controllable World Model for
+                            Autonomous Driving </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://github.com/ruiqi-song">Ruiqi Song</a><sup>1,2*</sup>,</span>
+                            <span class="author-block">
+                                <a href="https://github.com/knightdby">Baiyong Ding</a><sup>2*</sup>,</span>
+                            <span class="author-block">
+                                <a>Xianda Guo</a><sup>4</sup>,</span>
+                            <span class="author-block">
+                                <a>Haiyang Sun</a><sup>3</sup>,</span>
+                            <span class="author-block">
+                                <a>Cong Wang</a><sup>2</sup>,</span>
+                            <span class="author-block">
+                                <a>Dujun Nie</a><sup>2</sup></span>
+                            <br>
+                            <span class="author-block">
+                                <a>Hangbin Wu</a><sup>1</sup></span>
+                            <span class="author-block">
+                                <a>Long Chen</a><sup>2</sup></span>
+                            </span><br>
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">College of Surveying and Geo-informatics, Tongji
+                                University<sup>1</sup>,</span>&nbsp;
+                            <span class="author-block">Institute of Automation, Chinese Academy of
+                                Sciences<sup>2</sup></span>&nbsp;
+                            <span class="author-block">Xiaomi EV<sup>3</sup></span>&nbsp;
+                            <span class="author-block">School of Computer Science, Wuhan
+                                University<sup>4</sup></span>&nbsp;
+                        </div>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+                        </div>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">UniWorld: A Universal Controllable World Model for Autonomous Driving </h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">
-              <a href="https://github.com/ruiqi-song">Ruiqi Song</a><sup>1,2*</sup>,</span>
-            <span class="author-block">
-              <a href="https://github.com/knightdby">Baiyong Ding</a><sup>2*</sup>,</span>
-            <span class="author-block">
-                <a >Xianda Guo</a><sup>4</sup>,</span>
-            <span class="author-block">
-              <a >Haiyang Sun</a><sup>3</sup>,</span>
-            <span class="author-block">
-              <a >Cong Wang</a><sup>2</sup>,</span>
-            <span class="author-block">
-              <a >Dujun Nie</a><sup>2</sup></span>
-
-            <span class="author-block">
-              <a >Hangbin Wu</a><sup>1</sup></span>
-            <span class="author-block">
-              <a >Long Chen</a><sup>2</sup></span>
-            </span><br>
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">College of Surveying and Geo-informatics, Tongji University<sup>1</sup>,</span>&nbsp;
-            <span class="author-block">Institute of Automation, Chinese Academy of Sciences<sup>2</sup></span>&nbsp;
-            <span class="author-block">Xiaomi EV<sup>3</sup></span>&nbsp;
-            <span class="author-block">School of Computer Science, Wuhan University<sup>4</sup></span>&nbsp;
-          </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>*</sup>Equal Contribution</span>
-          </div>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href="https://arxiv.org/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-        <img id="teaser"  muted loop playsinline height="100%" src="./static/images/overview_1.png" style="width:100%;height:100%;">
-      <!-- <p  style="font-size: 16px;"> 
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <img id="teaser" muted loop playsinline height="100%" src="./static/images/overview_1.png"
+                    style="width:100%;height:100%;">
+                <!-- <p  style="font-size: 16px;"> 
         DriveDreamer-2 can produce multi-view driving videos based on user descriptions: "On a rainy day, there is a car cutting in."
       </p> -->
-    </div>
-    <!-- <div class="hero-body">
+            </div>
+            <!-- <div class="hero-body">
       <img id="teaser"  muted loop playsinline height="100%" src="./static/images/abs2.png" style="width:100%;height:100%;">
     <p  style="font-size: 16px;"> 
       DriveDreamer-2 demonstrates powerful capabilities in generating multi-view driving videos. The generation quality of DriveDreamer-2 surpasses other state-of-the-art methods and effectively enhances downstream tasks.
     </p> -->
-  </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present <strong>UniWorld</strong>, a universal framework for scene reasoning and controllable scene generation in autonomous driving, formulated with three key components. 
-            First, we introduce <strong>UniWorld-R</strong>, the first large-scale Scene Reasoning Model, pretrained on a newly established traffic scene reasoning benchmark. 
-            It achieves a paradigm shift from single-vehicle prediction to multi-agent interaction reasoning, which allows joint modeling of complex traffic behaviors and language instruction controllable traffic-flow manipulation. 
-            Second, we design <strong>UniWorld-A</strong>, a action policy model that reconstructs and predicts traffic flows in a closed-loop manner. It captures real-world dynamics while supporting language-conditioned control of agent trajectories. 
-            Third, we propose <strong>UniWorld-G</strong>, a video generation model that translates reconstructed traffic flows into high-fidelity surround-view videos with consistent annotations, including 3D bounding boxes, BEV map, and semantic occupancy prediction.
-            In addition, we release the first large-scale traffic scene reasoning benchmark, <strong>SceneVerse-480k-R1</strong>, which provides a foundation for training multi-agent interaction reasoning. 
-            These components collectively establish an end-to-end language-to-data pipeline for controllable scene generation, which supports the synthesis of large-scale, diverse autonomous driving datasets. 
-            Extensive experiments demonstrate that UniWorld substantially improves scene reasoning, traffic flow reconstruction, scene generation, and downstream tasks, which establish a new paradigm for controllable video generation method.
-          </p>
-        </div> 
-      </div>
-    </div>
-    <!--/ Abstract. -->
-
-
-  </div>
-</section>
-
-
-<section class="section" id="Method">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Method</h2>
-    <section class="hero method">
-      <div class="container is-max-desktop">
-        <div class="hero-body">
-          <img id="method"  muted loop playsinline height="100%" src="./static/images/overview_2.png" style="width:100%;height:100%;">
-          <p>
-            Framework of UniWorld: Large-scale Scene Reasoning Model.
-          </p>
         </div>
-      </div>
+        </div>
     </section>
-  </div>
-</section>
-
-<script>
-bulmaCarousel.attach('#results-carousel1', {
-    slidesToScroll: 1,
-    slidesToShow: 3
-});
-$(function () {
-    $(".twentytwenty-container").twentytwenty({
-    before_label: 'Bbox', // Set a custom before label
-    after_label: 'Ours', // Set a custom after label
-    default_offset_pct: 0.3,
-    click_to_move: false
-    });
-});
-$(function () {
-    $(".twentytwenty-container2").twentytwenty({
-    before_label: '', // Set a custom before label
-    after_label: '', // Set a custom after label
-    default_offset_pct: 0.5,
-    click_to_move: false
-    });
-});
-</script>
 
 
-<section class="section" id="Results">
-  <div class="container is-max-desktop content">
-    <h2 class="title">Results with Gnerated Structural Information</h2>
-    <section class="hero method">
-    <div class="container is-max-desktop">
-    <div class="hero-body">  
-    
-    <h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back1"  muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0520/cond_1/vid_traj.mp4" type="video/mp4">
-                </video>
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We present <strong>UniWorld</strong>, a universal framework for scene reasoning and
+                            controllable scene generation in autonomous driving, formulated with three key components.
+                            First, we introduce <strong>UniWorld-R</strong>, the first large-scale Scene Reasoning
+                            Model, pretrained on a newly established traffic scene reasoning benchmark.
+                            It achieves a paradigm shift from single-vehicle prediction to multi-agent interaction
+                            reasoning, which allows joint modeling of complex traffic behaviors and language instruction
+                            controllable traffic-flow manipulation.
+                            Second, we design <strong>UniWorld-A</strong>, a action policy model that reconstructs and
+                            predicts traffic flows in a closed-loop manner. It captures real-world dynamics while
+                            supporting language-conditioned control of agent trajectories.
+                            Third, we propose <strong>UniWorld-G</strong>, a video generation model that translates
+                            reconstructed traffic flows into high-fidelity surround-view videos with consistent
+                            annotations, including 3D bounding boxes, BEV map, and semantic occupancy prediction.
+                            In addition, we release the first large-scale traffic scene reasoning benchmark,
+                            <strong>SceneVerse-480k-R1</strong>, which provides a foundation for training multi-agent
+                            interaction reasoning.
+                            These components collectively establish an end-to-end language-to-data pipeline for
+                            controllable scene generation, which supports the synthesis of large-scale, diverse
+                            autonomous driving datasets.
+                            Extensive experiments demonstrate that UniWorld substantially improves scene reasoning,
+                            traffic flow reconstruction, scene generation, and downstream tasks, which establish a new
+                            paradigm for controllable video generation method.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="column is-6">
-                <video  class="auto-play-video" poster="" id="fantasy_back2"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back3"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0520/cond_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0520/cond_2/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_2/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_2/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_2/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0520/cond_2/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0520/cond_3/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_3/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_3/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0520/cond_3/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0520/cond_3/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    <h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0331/cond_3/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_3/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_3/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_3/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0331/cond_3/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0331/cond_5/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_5/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_5/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_5/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0331/cond_5/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0331/cond_0/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_0/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_0/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0331/cond_0/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0331/cond_0/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    <h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-1078/cond_train_0/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_0/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_0/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-1078/cond_train_1/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-1078/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-1078/cond_train_2/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_2/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_2/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-1078/cond_train_2/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    <h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0574/cond_train_1/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0574/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0574/cond_train_3/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_3/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_3/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_3/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0574/cond_train_3/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0574/cond_train_4/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_4/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_4/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0574/cond_train_4/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0574/cond_train_4/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
+            <!--/ Abstract. -->
 
-	<h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0303/cond_train_0/vid_traj.mp4" type="video/mp4">
-                </video>
+
+        </div>
+    </section>
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title is-3">Method</h2>
+                <img id="method" muted loop playsinline height="100%" src="./static/images/overview_2.png"
+                    style="width:100%;height:100%;">
+                <p>
+                    Framework of UniWorld: Large-scale Scene Reasoning Model.
+                </p>
             </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_0/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_0/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_0/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-                <!-- <div class="container">
+        </div>
+    </section>
+
+
+    <script>
+        bulmaCarousel.attach('#results-carousel1', {
+            slidesToScroll: 1,
+            slidesToShow: 3
+        });
+        $(function () {
+            $(".twentytwenty-container").twentytwenty({
+                before_label: 'Bbox', // Set a custom before label
+                after_label: 'Ours', // Set a custom after label
+                default_offset_pct: 0.3,
+                click_to_move: false
+            });
+        });
+        $(function () {
+            $(".twentytwenty-container2").twentytwenty({
+                before_label: '', // Set a custom before label
+                after_label: '', // Set a custom after label
+                default_offset_pct: 0.5,
+                click_to_move: false
+            });
+        });
+    </script>
+    <style>
+        .custom-columns {
+            background-color: rgb(234, 240, 235);
+            /* 白色背景 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            /* 淡阴影 */
+            padding: 30px;
+            /* 内边距 */
+            border-radius: 8px;
+            /* 可选：圆角边框，搭配阴影更美观 */
+        }
+    </style>
+
+    <section class="hero is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title is-3">Results</h2>
+                <h5 class=" title is-5">Control Single Agent: scene-0520</h5>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A5&gt; Turn Left</p>
+                            <video class="auto-play-video" poster="" id="fantasy_back1" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back2" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0520/cond_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back3" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_1/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_1/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0520/cond_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A5&gt; Speed Up</p>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_2/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0520/cond_2/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_2/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_2/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0520/cond_2/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A5&gt; Slow Down</p>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_3/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0520/cond_3/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_3/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0520/cond_3/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0520/cond_3/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h5 class=" title is-5">Control Single Agent: scene-0331</h5>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A2&gt; Uncond</p>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_3/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0331/cond_3/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_3/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_3/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0331/cond_3/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A2&gt; Stop</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_5/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0331/cond_5/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_5/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_5/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0331/cond_5/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A2&gt; Turn Right</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_0/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0331/cond_0/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_0/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0331/cond_0/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0331/cond_0/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="title is-5">"Control Single Agent: scene-1078</h5>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A1&gt; Change Right</p>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_0/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-1078/cond_train_0/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_0/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A1&gt; Change Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-1078/cond_train_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_1/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-1078/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;A1&gt; Go Straight</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_2/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-1078/cond_train_2/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_2/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-1078/cond_train_2/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="title is-5">Control Ego Car: scene-0574</h5>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;ego&gt; Turn Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0574/cond_train_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_1/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0574/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;ego&gt; Go Straight</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_3/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0574/cond_train_3/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_3/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_3/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0574/cond_train_3/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;ego&gt; Slow Down</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_4/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0574/cond_train_4/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_4/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0574/cond_train_4/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0574/cond_train_4/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="title">Control Ego Car: scene-0303</h4>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;ego&gt; Change Right</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_0/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0303/cond_train_0/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_0/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_0/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <!-- <div class="container">
                     <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
                     <div class="video">
                         <video class="auto-play-video" poster="" id="fantasy_back"  muted loop playsinline width="100%">
@@ -570,447 +715,586 @@ $(function () {
                         </video>
                     </div>
                 </div> -->
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0303/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0303/cond_train_1/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0303/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0303/cond_train_2/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_2/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_2/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0303/cond_train_2/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0303/cond_train_2/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    <h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0522/cond_m_1/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_m_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_m_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_m_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0522/cond_m_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0522/cond_m_2/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_m_2/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_m_2/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_m_2/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0522/cond_m_2/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0522/cond_3/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_3/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_3/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_3/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0522/cond_3/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0522/cond_0/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_0/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_0/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_0/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0522/cond_0/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0522/cond_2/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_2/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_2/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_2/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0522/cond_2/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0522/cond_5/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_5/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_5/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0522/cond_5/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0522/cond_5/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-    <h4 class="title">"Daytime / rainy day / at night, a car abruptly cutting in from the right rear of ego-car."</h4>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0523/cond_m_3/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_3/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_3/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_3/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0523/cond_m_3/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0523/cond_m_4/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_4/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_4/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_4/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0523/cond_m_4/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0523/cond_m_0/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_0/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_0/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_0/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0523/cond_m_0/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0523/cond_m_1/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0523/cond_m_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0523/cond_m_2/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_2/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_2/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_m_2/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0523/cond_m_2/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-            <div class="column is-2">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="90%">
-                <source src="./static/videos/scene-0523/cond_1/vid_traj.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-6">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_1/_1696x4800_f41_fps12.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-3">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_1/vid_bbox_around.mp4" type="video/mp4">
-                </video>
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="95%">
-                <source src="./static/videos/scene-0523/cond_1/vid_occ_arround.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="column is-4">
-                <video class="auto-play-video" poster="" id="fantasy_back"   muted loop playsinline width="500" height="500">
-                <source src="./static/videos/scene-0523/cond_1/vid_occ_bev.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-  </div></div></section>
-  </div>
-</section>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0303/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;ego&gt; Turn Left</p>
 
-<script>
-  // 调试：检查是否正确选中视频元素
-  const videos = document.querySelectorAll('.auto-play-video');
-  console.log('找到的视频数量：', videos.length); // 应输出 1 或实际数量
-  if (videos.length === 0) {
-    console.error('未找到带 auto-play-video 类的视频，请检查类名是否正确');
-  }
-  // 配置 IntersectionObserver
-  const observerOptions = {
-    root: null, // 以视口为根元素
-    rootMargin: '0px', // 无额外边距
-    threshold: 0.2 // 视频 10% 进入视口即触发（降低阈值，更灵敏）
-  };
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0303/cond_train_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_1/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0303/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="font-size: 12px;">Agent &lt;ego&gt; Slow Down</p>
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const video = entry.target;
-      console.log(`视频 ${video.id} 视口状态：`, entry.isIntersecting ? '进入' : '离开');
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_2/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0303/cond_train_2/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_2/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0303/cond_train_2/vid_occ_arround.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0303/cond_train_2/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="title">Control Multi-Agent: scene-0522</h4>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Turn Left<br>Agent
+                                &lt;A7&gt;
+                                Slow Down<br>Agent &lt;A11&gt; Turn Right</p>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0522/cond_m_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0522/cond_m_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_m_1/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_m_1/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0522/cond_m_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Turn Left<br>Agent
+                                &lt;A7&gt;
+                                Go Stright<br>Agent &lt;A11&gt; Turn Left</p>
 
-      if (entry.isIntersecting) {
-        // 进入视口：先加载视频，再播放
-        video.load(); // 加载视频（因 preload="none"）
-        video.play()
-          .then(() => console.log(`视频 ${video.id} 播放成功`))
-          .catch(err => {
-            console.warn(`视频 ${video.id} 自动播放失败，可能受浏览器策略限制：`, err);
-            // 失败时可添加用户交互触发播放（如点击封面）
-            video.poster = "./cover.jpg"; // 显示封面图
-            video.addEventListener('click', () => video.play(), { once: true });
-          });
-      } else {
-        // 离开视口：暂停并释放资源
-        if (!video.paused) {
-          video.pause();
-          console.log(`视频 ${video.id} 已暂停`);
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0522/cond_m_2/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0522/cond_m_2/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_m_2/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_m_2/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0522/cond_m_2/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Uncond<br>Agent &lt;A7&gt;
+                                Uncond<br>Agent &lt;A11&gt; Uncond</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0522/cond_3/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0522/cond_3/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_3/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_3/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0522/cond_3/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A11&gt; Turn Right</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0522/cond_0/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0522/cond_0/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_0/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_0/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0522/cond_0/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A11&gt; Turn Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0522/cond_2/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0522/cond_2/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_2/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_2/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0522/cond_2/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A11&gt; Stop</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0522/cond_5/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0522/cond_5/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_5/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0522/cond_5/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0522/cond_5/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="title">Control Multi-Agent: scene-0523</h4>
+                <div class="custom-columns">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A30&gt; Turn Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0523/cond_m_3/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0523/cond_m_3/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_3/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_3/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0523/cond_m_3/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Right<br>Agent
+                                &lt;A30&gt;
+                                Turn Right</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0523/cond_m_4/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0523/cond_m_4/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_4/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_4/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0523/cond_m_4/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Go Stragiht<br>Agent
+                                &lt;A30&gt;
+                                Turn Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0523/cond_m_0/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0523/cond_m_0/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_0/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_0/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0523/cond_m_0/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Right<br>Agent
+                                &lt;A30&gt;
+                                Turn Right</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0523/cond_m_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0523/cond_m_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_1/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_1/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0523/cond_m_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Right<br>Agent
+                                &lt;A30&gt;
+                                Turn Right<br>Agent &lt;ego&gt; Turn Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0523/cond_m_2/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0523/cond_m_2/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_2/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_m_2/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0523/cond_m_2/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Left</p>
+
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="70%">
+                                <source src="./static/videos/scene-0523/cond_1/vid_traj.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-5">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="95%">
+                                <source src="./static/videos/scene-0523/cond_1/_1696x4800_f41_fps12.mp4"
+                                    type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_1/vid_bbox_around.mp4" type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scene-0523/cond_1/vid_occ_arround.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="column is-3">
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="500" height="500">
+                                <source src="./static/videos/scene-0523/cond_1/vid_occ_bev.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <script>
+        // 调试：检查是否正确选中视频元素
+        const videos = document.querySelectorAll('.auto-play-video');
+        console.log('找到的视频数量：', videos.length); // 应输出 1 或实际数量
+        if (videos.length === 0) {
+            console.error('未找到带 auto-play-video 类的视频，请检查类名是否正确');
         }
-        // 可选：完全离开时卸载视频（节省内存，但再次进入需重新加载）
-        // video.src = ''; 
-      }
-    });
-  }, observerOptions);
+        // 配置 IntersectionObserver
+        const observerOptions = {
+            root: null, // 以视口为根元素
+            rootMargin: '0px', // 无额外边距
+            threshold: 0.2 // 视频 10% 进入视口即触发（降低阈值，更灵敏）
+        };
 
-  // 监听所有视频
-  videos.forEach(video => observer.observe(video));
-</script>
-	
-	
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <p> If you use our work in your research, please cite: </p>
-    <pre><code>@article{zhao2024drive,
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const video = entry.target;
+                console.log(`视频 ${video.id} 视口状态：`, entry.isIntersecting ? '进入' : '离开');
+
+                if (entry.isIntersecting) {
+                    // 进入视口：先加载视频，再播放
+                    video.load(); // 加载视频（因 preload="none"）
+                    video.play()
+                        .then(() => console.log(`视频 ${video.id} 播放成功`))
+                        .catch(err => {
+                            console.warn(`视频 ${video.id} 自动播放失败，可能受浏览器策略限制：`, err);
+                            // 失败时可添加用户交互触发播放（如点击封面）
+                            video.poster = "./cover.jpg"; // 显示封面图
+                            video.addEventListener('click', () => video.play(), { once: true });
+                        });
+                } else {
+                    // 离开视口：暂停并释放资源
+                    if (!video.paused) {
+                        video.pause();
+                        console.log(`视频 ${video.id} 已暂停`);
+                    }
+                    // 可选：完全离开时卸载视频（节省内存，但再次进入需重新加载）
+                    // video.src = ''; 
+                }
+            });
+        }, observerOptions);
+
+        // 监听所有视频
+        videos.forEach(video => observer.observe(video));
+    </script>
+
+
+    <!-- <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <p> If you use our work in your research, please cite: </p>
+            <pre><code>@article{zhao2024drive,
   title={DriveDreamer-2: LLM-Enhanced World Models for Diverse Driving Video Generation},
   author={Zhao, Guosheng and Wang, Xiaofeng and Zhu, Zheng and Chen, Xinze and Huang, Guan and Bao, Xiaoyi and Wang, Xingang},
   journal={arXiv preprint arXiv:2403.06845},
   year={2024}
 }</code></pre>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link" href="https://github.com/f1yfisher/DriveDreamer2" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Website adapted from the following <a href="https://github.com/nerfies/nerfies.github.io">template</a>.
-          </p>
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
-	
+    </section> -->
+
+    <!-- <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="https://github.com/f1yfisher/DriveDreamer2" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            Website adapted from the following <a
+                                href="https://github.com/nerfies/nerfies.github.io">template</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> -->
+
 </body>
+
 </html>

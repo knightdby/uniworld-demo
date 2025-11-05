@@ -7,7 +7,7 @@
     <meta name="keywords" content="UniWorld">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UniWorld: A Universal Controllable World Model for Autonomous Driving</title>
-
+    <link rel="icon" type="image/png" sizes="32x32" href="./static/images/logo.png">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -79,6 +79,10 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
+                        <div class="logo">
+                            <img src="static/images/logo.png" , width="20%" , height="20%">
+                        </div>
+                        <br>
                         <h1 class="title is-1 publication-title">UniWorld: A Universal Controllable World Model for
                             Autonomous Driving </h1>
                         <div class="is-size-5 publication-authors">
@@ -96,7 +100,7 @@
                                 <a>Dujun Nie</a><sup>2</sup></span>
                             <br>
                             <span class="author-block">
-                                <a>Hangbin Wu</a><sup>1</sup></span>
+                                <a>Hangbin Wu</a><sup>1</sup>,</span>
                             <span class="author-block">
                                 <a>Long Chen</a><sup>2</sup></span>
                             </span><br>
@@ -105,8 +109,8 @@
                             <span class="author-block">College of Surveying and Geo-informatics, Tongji
                                 University<sup>1</sup>,</span>&nbsp;
                             <span class="author-block">Institute of Automation, Chinese Academy of
-                                Sciences<sup>2</sup></span>&nbsp;
-                            <span class="author-block">Xiaomi EV<sup>3</sup></span>&nbsp;
+                                Sciences<sup>2</sup></span>&nbsp;<br>
+                            <span class="author-block">Xiaomi EV<sup>3</sup>,</span>&nbsp;
                             <span class="author-block">School of Computer Science, Wuhan
                                 University<sup>4</sup></span>&nbsp;
                         </div>
@@ -232,9 +236,9 @@
         });
         $(function () {
             $(".twentytwenty-container2").twentytwenty({
-                before_label: '', // Set a custom before label
-                after_label: '', // Set a custom after label
-                default_offset_pct: 0.5,
+                before_label: 'Raw', // Set a custom before label
+                after_label: 'Generation', // Set a custom after label
+                default_offset_pct: 0.2,
                 click_to_move: false
             });
         });
@@ -263,30 +267,46 @@
                             <p style="font-size: 12px;">Agent &lt;A5&gt; Turn Left</p>
                             <video class="auto-play-video" poster="" id="fantasy_back1" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0520/cond_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0520/cond_1/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back2" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0520/cond_1/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0520/cond_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0520/cond_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back3" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0520/cond_1/vid_bbox_around.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0520/cond_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0520/cond_1/vid_occ_arround.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0520/cond_1/vid_occ_arround.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0520/cond_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0520/cond_1/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -295,30 +315,46 @@
                             <p style="font-size: 12px;">Agent &lt;A5&gt; Speed Up</p>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0520/cond_2/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0520/cond_2/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0520/cond_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0520/cond_2/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0520/cond_2/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0520/cond_2/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0520/cond_2/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0520/cond_2/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0520/cond_2/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0520/cond_2/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0520/cond_2/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -327,30 +363,46 @@
                             <p style="font-size: 12px;">Agent &lt;A5&gt; Slow Down</p>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0520/cond_3/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0520/cond_3/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0520/cond_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0520/cond_3/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0520/cond_3/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0520/cond_3/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0520/cond_3/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0520/cond_3/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0520/cond_3/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0520/cond_3/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0520/cond_3/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -362,30 +414,46 @@
                             <p style="font-size: 12px;">Agent &lt;A2&gt; Uncond</p>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0331/cond_3/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0331/cond_3/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0331/cond_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0331/cond_3/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0331/cond_3/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0331/cond_3/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0331/cond_3/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0331/cond_3/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0331/cond_3/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0331/cond_3/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0331/cond_3/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -395,30 +463,46 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0331/cond_5/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0331/cond_5/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0331/cond_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0331/cond_5/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0331/cond_5/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0331/cond_5/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0331/cond_5/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0331/cond_5/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0331/cond_5/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0331/cond_5/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0331/cond_5/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -428,30 +512,46 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0331/cond_0/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0331/cond_0/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0331/cond_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0331/cond_5/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0331/cond_0/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0331/cond_0/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0331/cond_0/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0331/cond_0/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0331/cond_0/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0331/cond_0/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0331/cond_0/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -463,32 +563,49 @@
                             <p style="font-size: 12px;">Agent &lt;A1&gt; Change Right</p>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_0/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-1078/cond_train_0/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-1078/cond_train_0/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-1078/cond_train_0/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-1078/cond_train_0/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_0/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-1078/cond_train_0/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-1078/cond_train_0/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-1078/cond_train_0/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -498,32 +615,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-1078/cond_train_1/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-1078/cond_train_1/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-1078/cond_train_0/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-1078/cond_train_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_1/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-1078/cond_train_1/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_1/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-1078/cond_train_1/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-1078/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-1078/cond_train_1/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -533,32 +667,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_2/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-1078/cond_train_2/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-1078/cond_train_2/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-1078/cond_train_0/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-1078/cond_train_2/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_2/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-1078/cond_train_2/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-1078/cond_train_2/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-1078/cond_train_2/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-1078/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-1078/cond_train_0/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -571,32 +722,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0574/cond_train_1/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0574/cond_train_1/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0574/cond_train_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0574/cond_train_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_1/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-0574/cond_train_1/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_1/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-0574/cond_train_1/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0574/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0574/cond_train_1/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -606,32 +774,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_3/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0574/cond_train_3/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0574/cond_train_3/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0574/cond_train_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0574/cond_train_3/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_3/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-0574/cond_train_3/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_3/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-0574/cond_train_3/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0574/cond_train_3/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0574/cond_train_3/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -641,32 +826,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_4/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0574/cond_train_4/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0574/cond_train_4/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0574/cond_train_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0574/cond_train_4/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_4/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-0574/cond_train_4/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0574/cond_train_4/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-0574/cond_train_4/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0574/cond_train_4/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0574/cond_train_4/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -679,47 +881,50 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_0/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0303/cond_train_0/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0303/cond_train_0/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-scene/cond_train_0/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-scene/cond_train_0/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_0/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-0303/cond_train_0/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_0/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-0303/cond_train_0/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
-                            <!-- <div class="container">
-                    <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
-                    <div class="video">
-                        <video class="auto-play-video" poster="" id="fantasy_back"  muted loop playsinline width="100%">
-                        <source src="./static/videos/scene-0303/cond_train_0/_1696x4800_f41_fps12.mp4"
-                            type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video">
-                        <video class="auto-play-video" poster="" id="fantasy_back"  muted loop playsinline width="100%">
-                        <source src="./static/videos/scene-0303/cond_train_0/vid_bbox_around.mp4"
-                            type="video/mp4">
-                        </video>
-                    </div>
-                </div> -->
+
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0303/cond_train_0/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0303/cond_train_0/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -729,32 +934,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0303/cond_train_1/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0303/cond_train_1/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0303/cond_train_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0303/cond_train_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_1/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-0303/cond_train_1/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_1/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-0303/cond_train_1/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0303/cond_train_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0303/cond_train_1/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -764,32 +986,49 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_2/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0303/cond_train_2/vid_traj.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0303/cond_train_2/_1696x4800_f41_fps12.mp4"
-                                    type="video/mp4">
-                            </video>
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0303/cond_train_2/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0303/cond_train_2/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_2/vid_bbox_around.mp4"
+                                <source src="./static/videos/scenes/scene-0303/cond_train_2/vid_bbox_around.mp4"
                                     type="video/mp4">
                             </video>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
-                                <source src="./static/videos/scene-0303/cond_train_2/vid_occ_arround.mp4"
+                                <source src="./static/videos/scenes/scene-0303/cond_train_2/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0303/cond_train_2/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0303/cond_train_2/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -803,30 +1042,47 @@
                                 Slow Down<br>Agent &lt;A11&gt; Turn Right</p>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0522/cond_m_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_1/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0522/cond_m_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0522/cond_m_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0522/cond_m_1/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_1/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_m_1/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_m_1/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0522/cond_m_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_1/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -838,64 +1094,98 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0522/cond_m_2/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_2/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0522/cond_m_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0522/cond_m_2/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0522/cond_m_2/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_2/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_2/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_m_2/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_m_2/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0522/cond_m_2/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0522/cond_m_2/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Uncond<br>Agent &lt;A7&gt;
-                                Uncond<br>Agent &lt;A11&gt; Uncond</p>
+                            <!-- <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Uncond<br>Agent
+                                &lt;A7&gt;
+                                Uncond<br>Agent &lt;A11&gt; Uncond</p> -->
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0522/cond_3/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0522/cond_3/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0522/cond_m_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0522/cond_3/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0522/cond_3/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_3/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_3/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_3/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_3/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0522/cond_3/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0522/cond_3/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -905,30 +1195,46 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0522/cond_0/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0522/cond_0/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0522/cond_m_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0522/cond_0/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0522/cond_0/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_0/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_0/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_0/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_0/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0522/cond_0/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0522/cond_0/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -938,30 +1244,46 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0522/cond_2/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0522/cond_2/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0522/cond_m_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0522/cond_2/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0522/cond_2/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_2/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_2/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_2/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_2/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0522/cond_2/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0522/cond_2/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -971,30 +1293,46 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0522/cond_5/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0522/cond_5/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0522/cond_m_1/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0522/cond_5/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0522/cond_5/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_5/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0522/cond_5/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_5/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0522/cond_5/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0522/cond_5/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0522/cond_5/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1007,30 +1345,47 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0523/cond_m_3/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_3/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0523/cond_m_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0523/cond_m_3/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0523/cond_m_3/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_3/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_3/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_3/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_3/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0523/cond_m_3/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_3/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1042,30 +1397,47 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0523/cond_m_4/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_4/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0523/cond_m_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0523/cond_m_4/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0523/cond_m_4/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_4/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_4/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_4/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_4/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0523/cond_m_4/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_4/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1077,30 +1449,47 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0523/cond_m_0/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_0/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0523/cond_m_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0523/cond_m_0/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0523/cond_m_0/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_0/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_0/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_0/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_0/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0523/cond_m_0/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_0/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1112,30 +1501,47 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0523/cond_m_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_1/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0523/cond_m_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0523/cond_m_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0523/cond_m_1/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_1/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_1/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_1/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0523/cond_m_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_1/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1147,30 +1553,47 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0523/cond_m_2/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_2/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0523/cond_m_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0523/cond_m_2/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0523/cond_m_2/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_2/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_2/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_2/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_m_2/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0523/cond_m_2/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0523/cond_m_2/vid_occ_bev.mp4"
+                                    type="video/mp4">
                             </video>
                         </div>
                     </div>
@@ -1180,30 +1603,46 @@
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
-                                <source src="./static/videos/scene-0523/cond_1/vid_traj.mp4" type="video/mp4">
+                                <source src="./static/videos/scenes/scene-0523/cond_1/vid_traj.mp4" type="video/mp4">
                             </video>
                         </div>
                         <div class="column is-5">
+                            <div class="container">
+                                <div class="twentytwenty-container2" data-orientation="horizontal" ratio="0.37">
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source src="./static/videos/scenes/scene-0523/cond_m_3/gt_f40_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="video">
+                                        <video class="auto-play-video" poster="" id="fantasy_back" muted loop
+                                            playsinline width="100%">
+                                            <source
+                                                src="./static/videos/scenes/scene-0523/cond_1/_1696x4800_f41_fps12.mp4"
+                                                type="video/mp4">
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="95%">
-                                <source src="./static/videos/scene-0523/cond_1/_1696x4800_f41_fps12.mp4"
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_1/vid_bbox_around.mp4"
+                                    type="video/mp4">
+                            </video>
+                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
+                                width="80%">
+                                <source src="./static/videos/scenes/scene-0523/cond_1/vid_occ_arround.mp4"
                                     type="video/mp4">
                             </video>
                         </div>
-                        <div class="column is-3">
+                        <div class="column is-2">
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_1/vid_bbox_around.mp4" type="video/mp4">
-                            </video>
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="80%">
-                                <source src="./static/videos/scene-0523/cond_1/vid_occ_arround.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="column is-3">
-                            <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
-                                width="500" height="500">
-                                <source src="./static/videos/scene-0523/cond_1/vid_occ_bev.mp4" type="video/mp4">
+                                width="90%">
+                                <source src="./static/videos/scenes/scene-0523/cond_1/vid_occ_bev.mp4" type="video/mp4">
                             </video>
                         </div>
                     </div>

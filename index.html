@@ -79,10 +79,10 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <div class="logo">
+                        <!-- <div class="logo">
                             <img src="static/images/logo.png" , width="20%" , height="20%">
-                        </div>
-                        <br>
+                        </div> -->
+                        <!-- <br> -->
                         <h1 class="title is-1 publication-title">UniWorld: A Universal Controllable World Model for
                             Autonomous Driving </h1>
                         <div class="is-size-5 publication-authors">
@@ -255,16 +255,27 @@
             /* 可选：圆角边框，搭配阴影更美观 */
         }
     </style>
-
     <section class="hero is-small">
         <div class="hero-body">
             <div class="container">
                 <h2 class="title is-3">Results</h2>
-                <h5 class=" title is-5">Control Single Agent: scene-0520</h5>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Single Agent: scene-0520</h5>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
+
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A5&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A5&gt; Turn Left</p>
+                                </div>
+                            </div>
                             <video class="auto-play-video" poster="" id="fantasy_back1" muted loop playsinline
                                 width="80%">
                                 <source src="./static/videos/scenes/scene-0520/cond_1/vid_traj.mp4" type="video/mp4">
@@ -310,9 +321,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A5&gt; Speed Up</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A5&gt; Speed Up</p>
+                                </div>
+                            </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
                                 <source src="./static/videos/scenes/scene-0520/cond_2/vid_traj.mp4" type="video/mp4">
@@ -358,9 +380,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A5&gt; Slow Down</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A5&gt; Slow Down</p>
+                                </div>
+                            </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
                                 <source src="./static/videos/scenes/scene-0520/cond_3/vid_traj.mp4" type="video/mp4">
@@ -407,11 +440,22 @@
                         </div>
                     </div>
                 </div>
-                <h5 class=" title is-5">Control Single Agent: scene-0331</h5>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Single Agent: scene-0331</h5>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A2&gt; Uncond</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">None</p>
+                                </div>
+                            </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
                                 <source src="./static/videos/scenes/scene-0331/cond_3/vid_traj.mp4" type="video/mp4">
@@ -457,9 +501,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A2&gt; Stop</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A2&gt; Stop</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -506,9 +561,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A2&gt; Turn Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A2&gt; Turn Right</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -556,11 +622,23 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="title is-5">"Control Single Agent: scene-1078</h5>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Single Agent: scene-1078</h5>
+
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A1&gt; Change Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt; Change Right</p>
+                                </div>
+                            </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
                                 <source src="./static/videos/scenes/scene-1078/cond_train_0/vid_traj.mp4"
@@ -609,9 +687,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A1&gt; Change Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt; Change Left</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -661,9 +750,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;A1&gt; Go Straight</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt; Go Straight</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -714,12 +814,23 @@
                         </div>
                     </div>
                 </div>
-                <h5 class="title is-5">Control Ego Car: scene-0574</h5>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
-                        <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;ego&gt; Turn Left</p>
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Ego Car: scene-0574</h5>
 
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
+                        <div class="column is-2">
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Turn Left</p>
+                                </div>
+                            </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
                                 <source src="./static/videos/scenes/scene-0574/cond_train_1/vid_traj.mp4"
@@ -768,9 +879,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;ego&gt; Go Straight</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Go Straight</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -820,9 +942,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;ego&gt; Slow Down</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Slow Down</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -873,11 +1006,22 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="title">Control Ego Car: scene-0303</h4>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Ego Car: scene-0303</h5>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;ego&gt; Change Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="font-size: 9px; font-weight: bold; ">Agent &lt;ego&gt; Change Right</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -892,7 +1036,7 @@
                                         <video class="auto-play-video" poster="" id="fantasy_back" muted loop
                                             playsinline width="100%">
                                             <source
-                                                src="./static/videos/scenes/scene-scene/cond_train_0/gt_f40_fps12.mp4"
+                                                src="./static/videos/scenes/scene-0303/cond_train_0/gt_f40_fps12.mp4"
                                                 type="video/mp4">
                                         </video>
                                     </div>
@@ -900,7 +1044,7 @@
                                         <video class="auto-play-video" poster="" id="fantasy_back" muted loop
                                             playsinline width="100%">
                                             <source
-                                                src="./static/videos/scenes/scene-scene/cond_train_0/_1696x4800_f41_fps12.mp4"
+                                                src="./static/videos/scenes/scene-0303/cond_train_0/_1696x4800_f41_fps12.mp4"
                                                 type="video/mp4">
                                         </video>
                                     </div>
@@ -928,9 +1072,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;ego&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Turn Left</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -980,9 +1135,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="font-size: 12px;">Agent &lt;ego&gt; Slow Down</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Slow Down</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="80%">
@@ -1033,13 +1199,24 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="title">Control Multi-Agent: scene-0522</h4>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Multi-Agent: scene-0522</h5>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Turn Left<br>Agent
-                                &lt;A7&gt;
-                                Slow Down<br>Agent &lt;A11&gt; Turn Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A6&gt; Turn Left<br>Agent
+                                        &lt;A7&gt;Slow Down<br>Agent &lt;A11&gt; Turn Right</p>
+                                </div>
+                            </div>
+
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
                                 <source src="./static/videos/scenes/scene-0522/cond_m_1/vid_traj.mp4" type="video/mp4">
@@ -1086,11 +1263,22 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Turn Left<br>Agent
-                                &lt;A7&gt;
-                                Go Stright<br>Agent &lt;A11&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A6&gt; Turn Left<br>Agent
+                                        &lt;A7&gt;
+                                        Go Stright<br>Agent &lt;A11&gt; Turn Left</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1138,8 +1326,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">None</p>
+                                </div>
+                            </div>
                             <!-- <p style="text-align: center; font-size: 9px;">Agent &lt;A6&gt; Uncond<br>Agent
                                 &lt;A7&gt;
                                 Uncond<br>Agent &lt;A11&gt; Uncond</p> -->
@@ -1189,9 +1389,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A11&gt; Turn Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt; Turn Right</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1238,9 +1449,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A11&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt; Turn Left</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1287,9 +1509,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A11&gt; Stop</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt; Stop</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1337,11 +1570,23 @@
                         </div>
                     </div>
                 </div>
-                <h4 class="title">Control Multi-Agent: scene-0523</h4>
-                <div class="custom-columns">
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                <div class="custom-columns" style="padding: 10px; margin: 25px;">
+                    <h5 class="title is-5">Control Multi-Agent: scene-0523</h5>
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A30&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A30&gt; Turn Left</p>
+                                </div>
+                            </div>
+
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1389,11 +1634,22 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Right<br>Agent
-                                &lt;A30&gt;
-                                Turn Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Right<br>Agent
+                                        &lt;A30&gt;
+                                        Turn Right</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1441,11 +1697,24 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Go Stragiht<br>Agent
-                                &lt;A30&gt;
-                                Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Go
+                                        Stragiht<br>Agent
+                                        &lt;A30&gt;
+                                        Turn Left</p>
+                                </div>
+                            </div>
+
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1493,11 +1762,22 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Right<br>Agent
-                                &lt;A30&gt;
-                                Turn Right</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Right<br>Agent
+                                        &lt;A30&gt;
+                                        Turn Right</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1545,11 +1825,22 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Right<br>Agent
-                                &lt;A30&gt;
-                                Turn Right<br>Agent &lt;ego&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Right<br>Agent
+                                        &lt;A30&gt;
+                                        Turn Right<br>Agent &lt;ego&gt; Turn Left</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1597,9 +1888,20 @@
                             </video>
                         </div>
                     </div>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered">
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
                         <div class="column is-2">
-                            <p style="text-align: center; font-size: 9px;">Agent &lt;A10&gt; Turn Left</p>
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Left</p>
+                                </div>
+                            </div>
 
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
                                 width="70%">
@@ -1665,7 +1967,7 @@
         const observerOptions = {
             root: null, // 以视口为根元素
             rootMargin: '0px', // 无额外边距
-            threshold: 0.2 // 视频 10% 进入视口即触发（降低阈值，更灵敏）
+            threshold: 0.1 // 视频 10% 进入视口即触发（降低阈值，更灵敏）
         };
 
         const observer = new IntersectionObserver((entries) => {

@@ -35,7 +35,6 @@
     <link rel="icon" href="./static/images/ms_icon.png">
     <link rel="stylesheet" href="./static/css/progressive-image.css">
     <link rel="stylesheet" href="./static/css/twentytwenty.css">
-
     <style>
         table {
             font-family: arial, sans-serif;
@@ -102,7 +101,7 @@
                             <span class="author-block">
                                 <a>Hangbin Wu</a><sup>1</sup>,</span>
                             <span class="author-block">
-                                <a>Long Chen</a><sup>2</sup></span>
+                                <a>Long Chen</a><sup>2,&dagger;</sup></span>
                             </span><br>
                         </div>
                         <div class="is-size-5 publication-authors">
@@ -211,11 +210,13 @@
         <div class="hero-body">
             <div class="container">
                 <h2 class="title is-3">Method</h2>
-                <img id="method" muted loop playsinline height="100%" src="./static/images/overview_2.png"
-                    style="width:100%;height:100%;">
-                <p>
-                    Framework of UniWorld: Large-scale Scene Reasoning Model.
-                </p>
+                <div class="custom-columns-method has-text-centered" style="padding: 10px; margin: 25px;">
+                    <img id="method" muted loop playsinline height="100%" src="./static/images/overview_2.png"
+                        style="width:100%;height:100%;">
+                    <p>
+                        Framework of UniWorld: Large-scale Scene Reasoning Model.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -254,16 +255,36 @@
             border-radius: 8px;
             /* 可选：圆角边框，搭配阴影更美观 */
         }
+
+        .custom-columns-method {
+            background-color: rgb(255, 255, 255);
+            /* 白色背景 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            /* 淡阴影 */
+            padding: 30px;
+            /* 内边距 */
+            border-radius: 8px;
+            /* 可选：圆角边框，搭配阴影更美观 */
+        }
     </style>
     <section class="hero is-small">
         <div class="hero-body">
             <div class="container">
-                <h2 class="title is-3">Results</h2>
+                <h2 class="title is-3">Controllability</h2>
+                <h3 class="title is-4">Control Single Agent</h3>
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Single Agent: scene-0520</h5>
-                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                    <h5 class="title is-5" style="color: #344734;">Scene-0520</h5>
+                    <!-- <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
-
+                        <div class="column is-2">
+                            <p style="text-align: center; font-size: 12px; font-weight: bold; color: #1177BA;">Init
+                                Scene</p>
+                            <img src="./static/videos/scenes/scene-0520/cond_1/traj_gt.png" style="width: 100%">
+                        </div>
+                        <div class="column is-2">
+                            <img src="./static/images/logo.png" style="width: 30% ">
+                            <i class="fas fa-arrow-right" style="color: #333; font-size: 30px;"></i>
+                        </div>
                         <div class="column is-2">
                             <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                                 style="padding: 0; margin: 0;">
@@ -273,7 +294,57 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A5&gt; Turn Left</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A19&gt;
+                                        Turn Left</p>
+                                </div>
+                            </div>
+                            <img src="./static/videos/scenes/scene-0520/cond_1/traj_pred.png" style="width: 80%">
+                        </div>
+                        <div class="column is-2">
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A19&gt;
+                                        Speed Up</p>
+                                </div>
+                            </div>
+                            <img src="./static/videos/scenes/scene-0520/cond_2/traj_pred.png" style="width: 80%">
+                        </div>
+                        <div class="column is-2">
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A19&gt;
+                                        Slow Down</p>
+                                </div>
+                            </div>
+                            <img src="./static/videos/scenes/scene-0520/cond_3/traj_pred.png" style="width: 80%">
+                        </div>
+                    </div> -->
+
+                    <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                        style="padding: 0; margin: 0;">
+                        <div class="column is-2">
+                            <div class="columns is-centered has-text-centered is-gapless is-vcentered"
+                                style="padding: 0; margin: 0;">
+                                <div class="column is-2">
+                                    <img src="./static/images/agent.png" style="width: 30px; height: 30px;">
+                                </div>
+                                <div class="column is-7">
+                                    <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
+                                        instruction:</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A19&gt;
+                                        Turn Left</p>
                                 </div>
                             </div>
                             <video class="auto-play-video" poster="" id="fantasy_back1" muted loop playsinline
@@ -332,7 +403,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A5&gt; Speed Up</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A19&gt;
+                                        Speed Up</p>
                                 </div>
                             </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
@@ -391,7 +463,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A5&gt; Slow Down</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A19&gt;
+                                        Slow Down</p>
                                 </div>
                             </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
@@ -441,7 +514,7 @@
                     </div>
                 </div>
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Single Agent: scene-0331</h5>
+                    <h5 class="title is-5" style="color: #344734;">Scene-0331</h5>
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
                         <div class="column is-2">
@@ -512,7 +585,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A2&gt; Stop</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A2&gt;
+                                        Stop</p>
                                 </div>
                             </div>
 
@@ -572,7 +646,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A2&gt; Turn Right</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A2&gt;
+                                        Turn Right</p>
                                 </div>
                             </div>
 
@@ -623,7 +698,7 @@
                     </div>
                 </div>
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Single Agent: scene-1078</h5>
+                    <h5 class="title is-5" style="color: #344734;">Scene-1078</h5>
 
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
@@ -636,7 +711,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt; Change Right</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt;
+                                        Change Right</p>
                                 </div>
                             </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
@@ -698,7 +774,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt; Change Left</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt;
+                                        Change Left</p>
                                 </div>
                             </div>
 
@@ -761,7 +838,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt; Go Straight</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;A1&gt;
+                                        Go Straight</p>
                                 </div>
                             </div>
 
@@ -814,9 +892,9 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="title is-4">Control Ego Car</h3>
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Ego Car: scene-0574</h5>
-
+                    <h5 class="title is-5" style="color: #344734;">Scene-0574</h5>
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
                         <div class="column is-2">
@@ -828,7 +906,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Turn Left</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt;
+                                        Turn Left</p>
                                 </div>
                             </div>
                             <video class="auto-play-video" poster="" id="fantasy_back" muted loop playsinline
@@ -890,7 +969,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Go Straight</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt;
+                                        Go Straight</p>
                                 </div>
                             </div>
 
@@ -953,7 +1033,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Slow Down</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt;
+                                        Slow Down</p>
                                 </div>
                             </div>
 
@@ -1007,7 +1088,7 @@
                     </div>
                 </div>
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Ego Car: scene-0303</h5>
+                    <h5 class="title is-5" style="color: #344734;">Scene-0303</h5>
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
                         <div class="column is-2">
@@ -1083,7 +1164,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Turn Left</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt;
+                                        Turn Left</p>
                                 </div>
                             </div>
 
@@ -1146,7 +1228,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt; Slow Down</p>
+                                    <p style="text-align: left; font-size: 10px; font-weight: bold; ">Agent &lt;ego&gt;
+                                        Slow Down</p>
                                 </div>
                             </div>
 
@@ -1199,8 +1282,10 @@
                         </div>
                     </div>
                 </div>
+                <h3 class="title is-4">Control Multi-Agent</h3>
+
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Multi-Agent: scene-0522</h5>
+                    <h5 class="title is-5" style="color: #344734;">Scene-0522</h5>
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
                         <div class="column is-2">
@@ -1212,7 +1297,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A6&gt; Turn Left<br>Agent
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A6&gt;
+                                        Turn Left<br>Agent
                                         &lt;A7&gt;Slow Down<br>Agent &lt;A11&gt; Turn Right</p>
                                 </div>
                             </div>
@@ -1274,7 +1360,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A6&gt; Turn Left<br>Agent
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A6&gt;
+                                        Turn Left<br>Agent
                                         &lt;A7&gt;
                                         Go Stright<br>Agent &lt;A11&gt; Turn Left</p>
                                 </div>
@@ -1400,7 +1487,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt; Turn Right</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt;
+                                        Turn Right</p>
                                 </div>
                             </div>
 
@@ -1460,7 +1548,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt; Turn Left</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt;
+                                        Turn Left</p>
                                 </div>
                             </div>
 
@@ -1520,7 +1609,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt; Stop</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A11&gt;
+                                        Stop</p>
                                 </div>
                             </div>
 
@@ -1571,7 +1661,7 @@
                     </div>
                 </div>
                 <div class="custom-columns" style="padding: 10px; margin: 25px;">
-                    <h5 class="title is-5">Control Multi-Agent: scene-0523</h5>
+                    <h5 class="title is-5" style="color: #344734;">Scene-0523</h5>
                     <div class="columns is-centered has-text-centered is-gapless is-vcentered"
                         style="padding: 0; margin: 0;">
                         <div class="column is-2">
@@ -1583,7 +1673,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A30&gt; Turn Left</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A30&gt;
+                                        Turn Left</p>
                                 </div>
                             </div>
 
@@ -1645,7 +1736,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Right<br>Agent
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt;
+                                        Turn Right<br>Agent
                                         &lt;A30&gt;
                                         Turn Right</p>
                                 </div>
@@ -1708,7 +1800,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Go
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt;
+                                        Go
                                         Stragiht<br>Agent
                                         &lt;A30&gt;
                                         Turn Left</p>
@@ -1773,7 +1866,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Right<br>Agent
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt;
+                                        Turn Right<br>Agent
                                         &lt;A30&gt;
                                         Turn Right</p>
                                 </div>
@@ -1836,7 +1930,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Right<br>Agent
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt;
+                                        Turn Right<br>Agent
                                         &lt;A30&gt;
                                         Turn Right<br>Agent &lt;ego&gt; Turn Left</p>
                                 </div>
@@ -1899,7 +1994,8 @@
                                 <div class="column is-7">
                                     <p style="text-align: left; font-size: 10px; color: #1177BA;"> Language
                                         instruction:</p>
-                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt; Turn Left</p>
+                                    <p style="text-align: left; font-size: 8px; font-weight: bold; ">Agent &lt;A10&gt;
+                                        Turn Left</p>
                                 </div>
                             </div>
 
